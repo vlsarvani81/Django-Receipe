@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block start %}
+<h2>INDEX PAGE</h2>
+  <a href="/contact/">
+    CONTACT
+</a>
+|
+<a href="/about/">
+    ABOUT
+</a>
+<p>This page has been visited {{ page_count }} times during this session.</p>
+<table>
+    <tr>
+      <th>S.No</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th> can vote</th>
+    </tr>
+    {% for x in stu %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{x.name}}</td>
+      <td>{{x.age}}</td>
+      <td  {% if x.age < 18 %} style="background:red" {% endif %}>
+        {% if x.age >= 18 %}
+        👍
+        {%else%}
+        👎
+        {% endif %}
+      </td>
+    </tr>
+
+    {% endfor %}
+</table>
+{% endblock %}

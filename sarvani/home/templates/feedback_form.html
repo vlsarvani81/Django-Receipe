@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Feedback</title>
+</head>
+<body>
+    <h1>Give Your Feedback</h1>
+    <form method="post">
+        {% csrf_token %} {# Important for security! #}
+        <table>
+            {{ form.as_table }} {# Django will automatically display the form fields as a table #}
+        </table>
+        <button type="submit">Submit Feedback</button>
+    </form>
+</body>
+</html>
